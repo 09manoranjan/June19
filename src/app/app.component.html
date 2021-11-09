@@ -1,0 +1,67 @@
+<div class="container1">
+  <div class="meal-wrapper">
+    <div class="meal-search">
+      <h2 class="title">Find Meals for Your Ingredients</h2>
+      <blockquote>Real Food doesnot have Ingredients , Real Food is Ingredients.<br>
+        <cite>- Jamie Oliver</cite></blockquote>
+      <div class="meal-search-box">
+        <input type="text" placeholder="Enter your Ingredient" #searchInput class="search-control" [value]="searchInputVal">
+        <button type="submit" class="search-btn btn btn-warning" id="search-btn" (click)="getMealList(searchInput.value)">Search</button>
+      </div>
+    </div>
+    <div class="meal-result">
+      <h2 class="title" *ngIf="(mealsData!= null && mealsData.length > 0)">Your Search Results:</h2>
+      <div id="meal" >
+        <!-- meal item start -->
+        <!-- <div class="meal-items">
+          <div class="meal-img">
+            <img src="../assets/french-fries.jpg" alt="Food">
+          </div>
+          <div class="meal-name">
+            <h3>potato chips</h3>
+            <a href="#" class="recipe-btn mt-2 btn btn-danger">Get Recipe</a>
+          </div>
+        </div> -->
+        <!-- meal item end -->
+
+        <!-- meal item start -->
+       
+        <div class="meal-items" *ngFor="let meal of mealsData">
+            <div class="meal-img">
+              <img src="{{meal.strMealThumb}}" alt="Food">
+            </div>
+            <div class="meal-name">
+              <h3>{{meal.strMeal}}</h3>
+              <button class="recipe-btn mt-2 btn btn-danger" (click)="getRecipe(meal.idMeal)">Get Recipe</button>
+            </div>
+          </div>
+       
+          <!-- meal item end -->
+
+      </div>
+    </div>
+
+    <div class="meal-details" *ngIf="mealDetailsDisplay">
+      <!-- recipe close btn-->
+      <button class="btn recipe-close-btn" id="recipe-close-btn" (click)=closeMealDetails()>X</button>
+
+      <!-- meal-content -->
+      <div class="meal-details-content">
+        <h2 class="recipe-title">{{recipeData.strMeal}}</h2>
+        <p class="recipe-category">{{recipeData.strCategory}}</p>
+        <div class="recipe-instruct">
+          <h3>Instructions :</h3>
+          <p>{{recipeData.strInstructions}}</p>
+          <!-- <p> ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsum</p> -->
+        </div>
+        <div class="recipe-meal-img">
+          <img src="{{recipeData.strMealThumb}}" alt="">
+        </div>
+        <div class="recipe-link">
+          <a href="{{recipeData.strYoutube}}" target="_blank">Watch Videos</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

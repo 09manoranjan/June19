@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;900&display=swap');
+*{
+   padding: 0;
+   margin: 0;
+   box-sizing: border-box;
+}
+:root{
+   --tenne-taawny: #d65108;
+   --tenne-tawny-dark:#b54507;
+}
+body{
+   font-weight: 300;
+   font-size: 1.05 rem;
+   line-height: 1.6;
+   font-family: 'poppins', sans-serif;
+}
